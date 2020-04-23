@@ -6,5 +6,10 @@
 # Blog: https://p3terx.com
 #=================================================
 # Modify default IP
-sed -i 's/192.168.1.1/192.168.18.1/g' package/base-files/files/bin/config_generate
-git clone https://github.com/tty228/luci-app-serverchan package/lean/luci-app-serverchan
+sed -i 's/192.168.1.1/192.168.18.1/g' openwrt/package/base-files/files/bin/config_generate
+# Install ServerChan
+git clone https://github.com/tty228/luci-app-serverchan openwrt/package/lean/luci-app-serverchan
+# Sync Lede package
+git clone https://github.com/coolsnowwolf/lede.git lede
+# Install cifs-mount
+cp -r lede/package/lean/luci-app-cifs-mount openwrt/package/lean/luci-app-cifs-mount
