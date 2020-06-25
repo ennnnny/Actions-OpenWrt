@@ -15,8 +15,6 @@ cp -r lienol/luci-app-passwall openwrt/package/lean/luci-app-passwall
 git clone https://github.com/jerrykuku/luci-theme-argon.git openwrt/package/lean/luci-theme-argon
 # Sync Lede package
 git clone https://github.com/coolsnowwolf/lede.git lede
-# Install cifs-mount
-cp -r lede/package/lean/luci-app-cifs-mount openwrt/package/lean/luci-app-cifs-mount
 # Install ttyd
 cp -r lede/package/lean/luci-app-ttyd openwrt/package/lean/luci-app-ttyd
 # Install OpenClash
