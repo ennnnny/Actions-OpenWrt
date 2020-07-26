@@ -39,12 +39,12 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
       - name: Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@main
 
       - name: Initialization environment
         env:
@@ -90,7 +90,7 @@ jobs:
       #          $GITHUB_WORKSPACE/$DIY_P2_SH
 
       - name: SSH connection to Actions
-        uses: P3TERX/debugger-action@master
+        uses: P3TERX/debugger-action@main
         if: env.SSH_ACTIONS == 'true' || contains(github.event.action, 'ssh')
 
       - name: Download package
@@ -118,7 +118,7 @@ jobs:
         run: df -hT
 
       - name: Upload bin directory
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@main
         if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
         with:
           name: OpenWrt_bin${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
@@ -134,7 +134,7 @@ jobs:
           echo "::set-output name=status::success"
 
       - name: Upload firmware directory
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@main
         if: steps.organize.outputs.status == 'success' && !cancelled()
         with:
           name: OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
