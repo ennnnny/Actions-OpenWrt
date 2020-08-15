@@ -9,15 +9,15 @@
 sed -i 's/192.168.1.1/192.168.18.1/g' openwrt/package/base-files/files/bin/config_generate
 # Install ServerChan
 git clone https://github.com/tty228/luci-app-serverchan.git openwrt/package/lean/luci-app-serverchan
-# Add Other Theme
-git clone https://github.com/jerrykuku/luci-theme-argon.git openwrt/package/lean/luci-theme-argon
-git clone https://github.com/garypang13/luci-theme-edge.git openwrt/package/lean/luci-theme-edge
-# Install passwall
+## Add Other Theme
+#git clone https://github.com/jerrykuku/luci-theme-argon.git openwrt/package/lean/luci-theme-argon
+#git clone https://github.com/garypang13/luci-theme-edge.git openwrt/package/lean/luci-theme-edge
+## Install passwall
 #cp -r lienol/luci-app-passwall openwrt/package/lean/luci-app-passwall
-# Sync Lede package
-git clone https://github.com/coolsnowwolf/lede.git lede
-# Install ttyd
-cp -r lede/package/lean/luci-app-ttyd openwrt/package/lean/luci-app-ttyd
+## Sync Lede package
+#git clone https://github.com/coolsnowwolf/lede.git lede
+## Install ttyd
+#cp -r lede/package/lean/luci-app-ttyd openwrt/package/lean/luci-app-ttyd
 # Install OpenClash
 git clone -b master https://github.com/vernesong/OpenClash.git OpenClash
 cp -r OpenClash/luci-app-openclash openwrt/package/lean/luci-app-openclash

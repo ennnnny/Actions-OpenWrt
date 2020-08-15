@@ -35,7 +35,7 @@ env:
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
   UPLOAD_WETRANSFER: false
-#  WECHAT_NOTIFICATION: true
+  WECHAT_NOTIFICATION: true
   TZ: Asia/Shanghai
 
 jobs:
@@ -155,6 +155,6 @@ jobs:
           ./transfer wet -s -p 16 --no-progress ${FIRMWARE} 2>&1 | tee wetransfer.log
           echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
 
-#      - name: WeChat notification
-#          if: env.WECHAT_NOTIFICATION == 'true' && !cancelled() && steps.compile.outputs.status == 'success'
-#          run: curl https://sc.ftqq.com/${{ secrets.SCKEY }}.send?text=OpenWrt编译完成
+      - name: WeChat notification
+          if: steps.organize.outputs.status == 'success' && env.WECHAT_NOTIFICATION == 'true' && !cancelled()
+          run: curl https://sc.ftqq.com/${{ secrets.SCKEY }}.send?text=OpenWrt编译完成
