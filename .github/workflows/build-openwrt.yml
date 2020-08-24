@@ -160,6 +160,6 @@ jobs:
           echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
 
       - name: WeChat notification
-        if: steps.organize.outputs.status == 'success' && env.WECHAT_NOTIFICATION == 'true' && !cancelled()
+        if: env.WECHAT_NOTIFICATION == 'true' && !cancelled()
         run: |
-          curl https://sc.ftqq.com/${{ secrets.SCKEY }}.send?text=🎉OpenWrt_${{ env.date3 }}_${{ env.DEVICE_NAME }}编译完成😋|| curl https://sc.ftqq.com/${{ secrets.SCKEY }}.send?text=❌OpenWrt_${{ env.date3 }}_${{ env.DEVICE_NAME }}编译失败😂
+          [ ${{ steps.organize.outputs.status }} == 'success' ] && curl https://sc.ftqq.com/${{ secrets.SCKEY }}.send?text=🎉OpenWrt_${{ env.date3 }}_${{ env.DEVICE_NAME }}编译完成😋|| curl https://sc.ftqq.com/${{ secrets.SCKEY }}.send?text=❌OpenWrt_${{ env.date3 }}_${{ env.DEVICE_NAME }}编译失败😂

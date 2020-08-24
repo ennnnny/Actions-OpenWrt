@@ -18,5 +18,5 @@
 
 # Update Luci
 sed -i 's/openwrt-luci.git;dev-17.01/openwrt-luci.git;dev-19.07/g' openwrt/feeds.conf.default
-# Add Hello World
-sed -i '$a src-git helloworld https://github.com/fw876/helloworld' openwrt/feeds.conf.default
+## Add Hello World
+#sed -i '$a src-git helloworld https://github.com/fw876/helloworld' openwrt/feeds.conf.default
