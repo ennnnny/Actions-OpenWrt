@@ -44,6 +44,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@main
 
+      - name: Set Date
+        run: |
+          date=$(date +%Y-%m-%d)
+          echo "DATE=$date" >> $GITHUB_ENV
+
       - name: Initialization environment
         env:
           DEBIAN_FRONTEND: noninteractive
@@ -193,4 +198,4 @@ jobs:
       - name: WeChat notification
         if: env.WECHAT_NOTIFICATION == 'true' && !cancelled()
         run: |
-          [ ${{ steps.organize.outputs.status }} == 'success' ] && curl https://sc.ftqq.com/${{ secrets.SCKEY }}.send?text=🎉OpenWrt_${{ env.date3 }}_${{ env.DEVICE_NAME }}编译完成😋|| curl https://sc.ftqq.com/${{ secrets.SCKEY }}.send?text=❌OpenWrt_${{ env.date3 }}_${{ env.DEVICE_NAME }}编译失败😂
+          [ ${{ steps.organize.outputs.status }} == 'success' ] && curl https://sc.ftqq.com/${{ secrets.SCKEY }}.send?text=🎉OpenWrt_${{ env.DATE }}_${{ env.DEVICE_NAME }}编译完成😋|| curl https://sc.ftqq.com/${{ secrets.SCKEY }}.send?text=❌OpenWrt_${{ env.DATE }}_${{ env.DEVICE_NAME }}编译失败😂
