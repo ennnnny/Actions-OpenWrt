@@ -37,5 +37,14 @@ rm -rf /tmp/clash.tar.gz >/dev/null 2>&1
 #Backup OpenClash cofig
 echo '/etc/openclash/' >> openwrt/package/base-files/files/etc/sysupgrade.conf
 
-#install JD-dailybonus
+# Install JD-dailybonus
 #git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git openwrt/package/lean/luci-app-jd-dailybonus
+
+# Install smartdns
+git clone https://github.com/pymumu/luci-app-smartdns.git -b lede openwrt/package/luci-app-smartdns
+svn co https://github.com/Lienol/openwrt-packages/trunk/net/smartdns openwrt/package/smartdns
+
+# Sync Lienol package
+git clone https://github.com/Lienol/openwrt.git Lienol
+# Install adguardhome
+cp -r Lienol/package/diy/luci-app-adguardhome openwrt/package/lean/luci-app-adguardhome
