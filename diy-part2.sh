@@ -17,7 +17,7 @@ git clone https://github.com/tty228/luci-app-serverchan.git openwrt/package/lean
 # Add Other Theme
 rm -rf openwrt/package/lean/luci-theme-argon
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git openwrt/package/lean/luci-theme-argon
-#git clone https://github.com/garypang13/luci-theme-edge.git openwrt/package/lean/luci-theme-edge
+git clone -b 18.06 https://github.com/garypang13/luci-theme-edge.git openwrt/package/lean/luci-theme-edge
 ## Install passwall
 #cp -r lienol/luci-app-passwall openwrt/package/lean/luci-app-passwall
 ## Sync Lede package
