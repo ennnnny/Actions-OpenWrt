@@ -48,3 +48,8 @@ svn co https://github.com/Lienol/openwrt-packages/trunk/net/smartdns openwrt/pac
 git clone https://github.com/Lienol/openwrt.git Lienol
 # Install adguardhome
 cp -r Lienol/package/diy/luci-app-adguardhome openwrt/package/lean/luci-app-adguardhome
+
+#强制关机插件
+git clone https://github.com/esirplayground/luci-app-poweroff package/luci-app-poweroff
+#自动关机插件
+git clone https://github.com/sirpdboy/luci-app-autopoweroff package/luci-app-autopoweroff
