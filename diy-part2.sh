@@ -11,7 +11,7 @@
 #
 
 # Modify default IP
-sed -i 's/192.168.1.1/192.168.18.1/g' openwrt/package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.8.8/g' openwrt/package/base-files/files/bin/config_generate
 # Install ServerChan
 git clone https://github.com/tty228/luci-app-serverchan.git openwrt/package/lean/luci-app-serverchan
 # Add Other Theme
@@ -42,7 +42,7 @@ echo '/etc/openclash/' >> openwrt/package/base-files/files/etc/sysupgrade.conf
 
 # Install smartdns
 git clone https://github.com/pymumu/luci-app-smartdns.git -b lede openwrt/package/luci-app-smartdns
-svn co https://github.com/Lienol/openwrt-packages/trunk/net/smartdns openwrt/package/smartdns
+svn co https://github.com/Lienol/openwrt-packages/tree/main/net/smartdns openwrt/package/smartdns
 
 # Sync Lienol package
 git clone https://github.com/Lienol/openwrt.git Lienol
